@@ -7,11 +7,11 @@ public class Main {
 //        CheckFilesUtil.check(file);
 //        CheckFilesUtil.logByNum();
 //
-//        FileRenameUtil.rename(file);
-//        FileRenameUtil.logByNum();
-
-        FileReductionRenameUtil.reductionRename(file);
-        FileReductionRenameUtil.logByNum();
+        FileRenameUtil.rename(file);
+        FileRenameUtil.logByNum();
+//
+//        FileReductionRenameUtil.reductionRename(file);
+//        FileReductionRenameUtil.logByNum();
 
     }
 }

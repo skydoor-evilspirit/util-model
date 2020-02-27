@@ -5,7 +5,7 @@ public class FileRenameUtil {
     private static String[] iconSuffixR = {"bmp", "jpg", "png", "tif", "gif", "pcx", "tga", "exif", "fpx", "svg", "psd", "cdr", "pcd", "dxf", "ufo", "eps", "ai", "raw", "WMF", "webp", "jfif", "ico", "jpeg", "pdf"};
     private static String[] videoSuffixR = {"avi", "mp4", "mkv", "mov", "3gp", "rmvb", "rm", "flv", "f4v", "wmv", "ts", "kux", "mpg"};
     private static String[] musicSuffixR = {"mp3", "m4a", "wma"};
-    private static String[] moreSuffixR = {"rar", "7z"};
+    private static String[] moreSuffixR = {"rar", "7z","zip"};
     private static int iconNumR = 0;
     private static int videoNumR = 0;
     private static int musicNumR = 0;
@@ -73,7 +73,7 @@ public class FileRenameUtil {
         for (String s : iconSuffixR) {
             if (s.equals(suffix)) {
                 //这个文件就是这个后缀的，改名字
-                file.renameTo(new File(file.getParent() + "\\" + file.getName().substring(0, file.getName().lastIndexOf(".") + 1) + "icon" + new StringBuffer(suffix).reverse().toString() + "rename"));
+                file.renameTo(new File(file.getParent() + "\\" + new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString() + ".icon" + new StringBuffer(suffix).reverse().toString() + "rename"));
                 iconNumR++;
                 return true;
             }
@@ -84,7 +84,7 @@ public class FileRenameUtil {
     private static boolean checkSuffixIsVideo(String suffix, File file) {
         for (String v : videoSuffixR) {
             if (v.equals(suffix)) {
-                file.renameTo(new File(file.getParent() + "\\" + file.getName().substring(0, file.getName().lastIndexOf(".") + 1) + "video" + new StringBuffer(suffix).reverse().toString() + "rename"));
+                file.renameTo(new File(file.getParent() + "\\" +new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString() + ".video" + new StringBuffer(suffix).reverse().toString() + "rename"));
                 videoNumR++;
                 return true;
             }
@@ -96,7 +96,7 @@ public class FileRenameUtil {
         for (String m : musicSuffixR) {
             if (m.equals(suffix)) {
                 //这个文件就是这个后缀的，改名字
-                file.renameTo(new File(file.getParent() + "\\" + file.getName().substring(0, file.getName().lastIndexOf(".") + 1) + "music" + new StringBuffer(suffix).reverse().toString() + "rename"));
+                file.renameTo(new File(file.getParent() + "\\" +new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString() + ".music" + new StringBuffer(suffix).reverse().toString() + "rename"));
                 musicNumR++;
                 return true;
             }
@@ -108,7 +108,7 @@ public class FileRenameUtil {
         for (String m : moreSuffixR) {
             if (m.equals(suffix)) {
                 //这个文件就是这个后缀的，跳过
-                file.renameTo(new File(file.getParent() + "\\" + file.getName().substring(0, file.getName().lastIndexOf(".") + 1) + "more" + new StringBuffer(suffix).reverse().toString() + "rename"));
+                file.renameTo(new File(file.getParent() + "\\" + new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString() + ".more" + new StringBuffer(suffix).reverse().toString() + "rename"));
                 moreNumR++;
                 return true;
             }

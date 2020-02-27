@@ -6,7 +6,7 @@ public class FileReductionRenameUtil {
     private static int videoNumRE = 0;
     private static int musicNumRE = 0;
     private static int moreNumRE = 0;
-    private static int ignoreRE=0;
+    private static int ignoreRE = 0;
 
     public static void reductionRename(File file) {
         if (file.isDirectory()) {
@@ -36,13 +36,14 @@ public class FileReductionRenameUtil {
         }
 
     }
-    public static void logByNum(){
+
+    public static void logByNum() {
         System.out.println("======================================================");
         System.out.println("本次还原的图片总数为：" + iconNumRE);
         System.out.println("本次还原的视频总数为：" + videoNumRE);
         System.out.println("本次还原的音频总数为：" + musicNumRE);
         System.out.println("本次还原的压缩包总数为：" + moreNumRE);
-        System.out.println("本次还原未识别文件总数为："+ignoreRE);
+        System.out.println("本次还原未识别文件总数为：" + ignoreRE);
     }
 
     /**
@@ -52,7 +53,7 @@ public class FileReductionRenameUtil {
         boolean icon = isIcon(suffix);
         if (icon == true) {
             String fileName = file.getName();
-            File newFile = new File(file.getParent() + "\\" + fileName.substring(0, fileName.lastIndexOf(".") + 1) + new StringBuffer(suffix.substring(4, suffix.lastIndexOf("rename"))).reverse());
+            File newFile = new File(file.getParent() + "\\" + new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString() + "." + new StringBuffer(suffix.substring(4, suffix.lastIndexOf("rename"))).reverse());
             file.renameTo(newFile);
             iconNumRE++;
             return true;
@@ -60,7 +61,7 @@ public class FileReductionRenameUtil {
         boolean video = isVideo(suffix);
         if (video == true) {
             String fileName = file.getName();
-            File newFile = new File(file.getParent() + "\\" + fileName.substring(0, fileName.lastIndexOf(".") + 1) + new StringBuffer(suffix.substring(5, suffix.lastIndexOf("rename"))).reverse());
+            File newFile = new File(file.getParent() + "\\" + new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString()+"." + new StringBuffer(suffix.substring(5, suffix.lastIndexOf("rename"))).reverse());
             file.renameTo(newFile);
             videoNumRE++;
             return true;
@@ -68,7 +69,7 @@ public class FileReductionRenameUtil {
         boolean music = isMusic(suffix);
         if (music == true) {
             String fileName = file.getName();
-            File newFile = new File(file.getParent() + "\\" + fileName.substring(0, fileName.lastIndexOf(".") + 1) + new StringBuffer(suffix.substring(5, suffix.lastIndexOf("rename"))).reverse());
+            File newFile = new File(file.getParent() + "\\" +new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString()+"." + new StringBuffer(suffix.substring(5, suffix.lastIndexOf("rename"))).reverse());
             file.renameTo(newFile);
             musicNumRE++;
             return true;
@@ -76,7 +77,7 @@ public class FileReductionRenameUtil {
         boolean more = isMore(suffix);
         if (more == true) {
             String fileName = file.getName();
-            File newFile = new File(file.getParent() + "\\" + fileName.substring(0, fileName.lastIndexOf(".") + 1) + new StringBuffer(suffix.substring(4, suffix.lastIndexOf("rename"))).reverse());
+            File newFile = new File(file.getParent() + "\\" + new StringBuffer(file.getName().substring(0, file.getName().lastIndexOf("."))).reverse().toString()+"." + new StringBuffer(suffix.substring(4, suffix.lastIndexOf("rename"))).reverse());
             file.renameTo(newFile);
             moreNumRE++;
             return true;
@@ -111,7 +112,6 @@ public class FileReductionRenameUtil {
         }
         return false;
     }
-
 
 
 }

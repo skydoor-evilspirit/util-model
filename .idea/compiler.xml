@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="file-rename" />
+        <module name="register-machine" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="file-rename" target="1.8" />
+      <module name="register-machine" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

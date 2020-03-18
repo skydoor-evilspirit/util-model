@@ -2,7 +2,7 @@ import java.io.File;
 
 public class CheckFilesUtil {
     private static String[] iconSuffixC = {"bmp", "jpg", "png", "tif", "gif", "pcx", "tga", "exif", "fpx", "svg", "psd", "cdr", "pcd", "dxf", "ufo", "eps", "ai", "raw", "WMF", "webp", "jfif", "ico", "jpeg", "pdf"};
-    private static String[] videoSuffixC = {"avi", "mp4", "mkv", "mov", "3gp", "rmvb", "rm", "flv", "f4v", "wmv", "ts", "kux", "mpg"};
+    private static String[] videoSuffixC = {"avi", "mp4", "mkv", "mov", "3gp", "rmvb", "rm", "flv", "f4v", "wmv", "ts", "kux", "mpg","webm"};
     private static String[] musicSuffixC = {"mp3", "m4a", "wma"};
     private static String[] moreSuffixC = {"rar","7z"};
     private static int iconNumC = 0;
@@ -51,7 +51,8 @@ public class CheckFilesUtil {
             if (more == true) return;
             //能走到这，说明如果这个文件既不是图片，又不是视频，那就展示他的路径，以及文件名，和后缀
             System.out.println("路径：" + file.getPath());
-            System.out.println("文件名：" + file.getName());
+            System.out.println("执行删除文件..."+file.getName());
+            file.delete();
         }
     }
     public static void logByNum(){

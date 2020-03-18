@@ -8,7 +8,9 @@
       <list>
         <option value="$PROJECT_DIR$/file-rename/pom.xml" />
         <option value="$PROJECT_DIR$/register-machine/pom.xml" />
+        <option value="$PROJECT_DIR$/keep-watch-spring-boot/pom.xml" />
       </list>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

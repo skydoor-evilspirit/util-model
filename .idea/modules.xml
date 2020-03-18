@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/file-rename/file-rename.iml" filepath="$PROJECT_DIR$/file-rename/file-rename.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keep-watch-spring-boot/keep-watch-spring-boot.iml" filepath="$PROJECT_DIR$/keep-watch-spring-boot/keep-watch-spring-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/register-machine/register-machine.iml" filepath="$PROJECT_DIR$/register-machine/register-machine.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/util-model.iml" filepath="$PROJECT_DIR$/.idea/util-model.iml" />
     </modules>

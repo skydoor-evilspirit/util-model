@@ -29,44 +29,40 @@ public class JsoupData {
     @PostConstruct
     @Scheduled(cron = "0/10 * * * * ? ")
     public void watch() throws Exception {
-        System.out.println("===================第"+count++ +"次检测======================");
-        System.out.println("正在检测注册页面变化。。。");
-        Connection connect = Jsoup.connect("https://6pan.cn/auth/register");
-        Document document = connect.get();
-        boolean boo = false;
-        if (!data.equals(document.toString())) {//如果检测下来，跟前面的结果不相等，
-            //发送邮件
-            boo = true;
-            //将data中的值替换成新的
-            data = document.toString();
-        }
-        String jsResult1 = selectJS1();
-        if (!js1.equals(jsResult1)) {
-            boo = true;
-            //将data中的值替换成新的
-            js1 = jsResult1;
-        }
-        String jsResult2 = selectJS2();
-        if (!js2.equals(jsResult2)) {
-            boo = true;
-            //将data中的值替换成新的
-            js2 = jsResult2;
-        }
-        String CSSMail = selectCSSMail();
-        if (!cssMail.equals(CSSMail)) {
-            boo = true;
-            //将data中的值替换成新的
-            cssMail = CSSMail;
-        }
-        String selectCss = selectCss();
-        if (!css.equals(selectCss)){
-            boo = true;
-            //将data中的值替换成新的
-            css = selectCss;
-        }
-        if (boo){
-            sendEmail.send();
-        }
+            System.out.println("===================第"+count++ +"次检测======================");
+            System.out.println("正在检测注册页面变化。。。");
+            Connection connect = Jsoup.connect("https://6pan.cn/auth/register");
+            Document document = connect.get();
+            if (!data.equals(document.toString())) {//如果检测下来，跟前面的结果不相等，
+                //发送邮件
+                sendEmail.send();
+                //将data中的值替换成新的
+                data = document.toString();
+            }
+            String jsResult1 = selectJS1();
+            if (!js1.equals(jsResult1)) {
+                sendEmail.send();
+                //将data中的值替换成新的
+                js1 = jsResult1;
+            }
+            String jsResult2 = selectJS2();
+            if (!js2.equals(jsResult2)) {
+                sendEmail.send();
+                //将data中的值替换成新的
+                js2 = jsResult2;
+            }
+            String CSSMail = selectCSSMail();
+            if (!cssMail.equals(CSSMail)) {
+                sendEmail.send();
+                //将data中的值替换成新的
+                cssMail = CSSMail;
+            }
+            String selectCss = selectCss();
+            if (!css.equals(selectCss)){
+                sendEmail.send();
+                //将data中的值替换成新的
+                css = selectCss;
+            }
 
     }
 
@@ -74,8 +70,8 @@ public class JsoupData {
         System.out.println("检测js2的变化。。。");
         URL url = new URL("https://6pan.cn/static/js/main.283e2992.chunk.js");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setConnectTimeout(18000);
-        connection.setReadTimeout(6000);
+        connection.setConnectTimeout(30000);
+        connection.setReadTimeout(60000);
         connection.setRequestMethod("GET");
         connection.connect();
         StringBuilder result = new StringBuilder();
@@ -96,8 +92,8 @@ public class JsoupData {
         System.out.println("检测js1的变化。。。");
         URL url = new URL("https://6pan.cn/static/js/1.14cfac43.chunk.js");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setConnectTimeout(18000);
-        connection.setReadTimeout(6000);
+        connection.setConnectTimeout(30000);
+        connection.setReadTimeout(60000);
         connection.setRequestMethod("GET");
         connection.connect();
         StringBuilder result = new StringBuilder();
@@ -118,8 +114,8 @@ public class JsoupData {
         System.out.println("检测cssMail的变化。。。");
         URL url = new URL("https://6pan.cn/static/css/main.13698227.chunk.css");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setConnectTimeout(18000);
-        connection.setReadTimeout(6000);
+        connection.setConnectTimeout(30000);
+        connection.setReadTimeout(60000);
         connection.setRequestMethod("GET");
         connection.connect();
         StringBuilder result = new StringBuilder();
@@ -140,8 +136,8 @@ public class JsoupData {
         System.out.println("检测css的变化。。。");
         URL url = new URL("https://6pan.cn/static/css/1.235196c3.chunk.css");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setConnectTimeout(18000);
-        connection.setReadTimeout(6000);
+        connection.setConnectTimeout(30000);
+        connection.setReadTimeout(60000);
         connection.setRequestMethod("GET");
         connection.connect();
         StringBuilder result = new StringBuilder();
